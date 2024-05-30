@@ -10,7 +10,6 @@ const ExpenseList = ({ expenses, onDeleteExpense}) => {
 		<div>
 			{expenses.map((expense) => (
 				<div key={expense.id}>
-					{/*Render each expense item*/}
 					<p>{expense.title}</p>	
 					<p>{expense.amount}</p>	
 					<p>{expense.date}</p>	
