@@ -27,7 +27,7 @@ const Expenseform = () => {
 		}
 	};
 
-	const handleSUbmit = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!title || !amount || !date) {
 			setErrors({ message: 'Please fill in all required fields'});
@@ -60,13 +60,14 @@ const Expenseform = () => {
 			</div>
 			<div>
 				<label>Category</label>
-				<select name="category" value={category} onChange={handleInputChange}/>
-					<option value="">Select Category</option>
+				<select name="category" value={category} onChange={handleInputChange}><option value="">Select Category</option>
 					<option value="housing">housing</option>
 					<option value="grocery">grocery</option>
 					<option value="transportation">transportation</option>
 					<option value="clothes">clothes</option>
 					<option value="other">other</option>
+				</select>
+					
 			</div>
 			{errors.message && <p className="error">{errors.message}</p>}
 			<button type="submit">Add expense</button>
