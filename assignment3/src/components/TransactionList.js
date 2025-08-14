@@ -1,9 +1,12 @@
 import React, {useContext} from "react";
+import Transaction from "./Transaction";
+
+
 import {GlobalContext} from '../context/GlobalState';
 
 function TransactionList () {
 	const {transactions} = useContext(GlobalContext);
-
+	const sign = transactions.amount < 0 ? '-' : '+';
 
 
 
@@ -18,15 +21,9 @@ return(
 			<h5>Date</h5>
 			<h5>Category</h5>
 		</li>
-		{transactions.map(transaction => (<li key={transaction.id}>
-			{transaction.description}
-			<span/>
-			{transaction.amount}
-			<span/>
-			{transaction.date} 
-			<span/>
-			{transaction.category}
-		</li>))}
+		{transactions.map(transaction => (<Transaction key={transaction.id} transaction =
+		{transaction}
+		/>))}
 		
 
 	</ul>
