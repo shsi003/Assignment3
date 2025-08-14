@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 function AddTransaction () {
-	const [text, setText] = useState('');
+	const [description, setDescription] = useState('');
 	const [amount, setAmount] = useState(0);
 	const [date, setDate] = useState('');
 	const [category, setCategory] = useState('');
@@ -12,12 +12,12 @@ return(
 	<h3>
 		<form>
 			<div className="form-control">
-				<label htmlFor="text">Text</label>
-				<input type="text"  placeholder="Enter text..." value={text} onChange={(e) => setText(e.target.value)}/>
+				<label htmlFor="description">description</label>
+				<input type="text"  placeholder="Enter text..." value={description} onChange={(e) => setDescription(e.target.value)}/>
 			</div>
 			<div className="form-control">
 				<label htmlFor="amount">amount<br/>
-				(negative - expense, positive - income)
+				( (-)negative for expense,(+) positive -for income)
 				</label>
 				<input type="number"  placeholder="Enter amount..." value={amount} onChange={(e) => setAmount(e.target.value)}/>
 			</div>
@@ -30,7 +30,7 @@ return(
 				<select
                   className="form-control"
                 >
-                  <option value="">Select a category (optional)</option>
+                  <option value="-">Select a category (optional)</option>
                   {categories.map((cat) => (
                     <option key={cat} value={cat}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
                   ))}
