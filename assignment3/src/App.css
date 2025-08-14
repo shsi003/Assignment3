@@ -53,6 +53,7 @@ h4 {
 .inc-exp-container > div {
   flex: 1;
   text-align: center;
+  padding: 15px;
 }
 
 .inc-exp-container > div:first-of-type {
@@ -61,7 +62,7 @@ h4 {
 
 .money {
   font-size: 20px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin: 5px 0;
 }
 
