@@ -26,6 +26,8 @@ function AddTransaction () {
 
 	}
 
+	
+
 return(
 <>
 	<h3>

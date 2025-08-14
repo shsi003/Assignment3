@@ -3,9 +3,7 @@ import AppReducer from './AppReducer';
 
 //initial state
 const initialState = {
-	transactions: [
-		{id:1, description: "flower", amount:-20, date:"23/07/2025", category:"other"},
-	]
+	transactions: [ ]
 }
 
 
