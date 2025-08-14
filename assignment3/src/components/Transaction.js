@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 
 import {GlobalContext} from '../context/GlobalState';
 
 function Transaction ({transaction}) {
+	const { deleteTransaction } = useContext(GlobalContext);
+
 	const sign = transaction.amount < 0 ? '-' : '+';
 
 
@@ -12,11 +14,11 @@ function Transaction ({transaction}) {
 			<span/>
 		   {sign}${Math.abs(transaction.amount)}
 			<span/>
-			{transaction.date} 
+			{transaction.date}
 			<span/>
 			{transaction.category}
 			<span/>
-			<button className="delete-btn">x</button>
+			<button onClick={() => deleteTransaction(transaction.id)} className="delete-btn">x</button>
 		</li>
 	)
 

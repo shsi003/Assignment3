@@ -1,4 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
+
+import {GlobalContext} from '../context/GlobalState';
 
 function AddTransaction () {
 	const [description, setDescription] = useState('');
@@ -7,10 +9,27 @@ function AddTransaction () {
 	const [category, setCategory] = useState('');
 	const categories = ['housing', 'grocery', 'transportation', 'clothes', 'other'];
 
+	const {addTransaction} = useContext(GlobalContext);
+
+	const onSubmit = e => {
+		e.preventDefault();
+
+		const newTransaction = {
+			id: Math.floor(Math.random() * 1000000000),
+			description,
+			amount: +amount,
+			date,
+			categories
+		}
+
+		addTransaction(newTransaction);
+
+	}
+
 return(
 <>
 	<h3>
-		<form>
+		<form onSubmit={onSubmit}>
 			<div className="form-control">
 				<label htmlFor="description">description</label>
 				<input type="text"  placeholder="Enter text..." value={description} onChange={(e) => setDescription(e.target.value)}/>
